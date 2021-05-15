@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
 
 public class GFG {
 
 	public static void main(String[] args) {
-//		sample1();
-//		sample2();
-//		sample3();
-		sample4();
+		sample2();
 	}
 
 	private static void sample1() {
@@ -44,16 +44,20 @@ public class GFG {
 
 		List<Integer> al = new ArrayList<Integer>();
 
-		al.add(100);
 		al.add(30);
 		al.add(50);
 		al.add(8);
 		al.add(10);
 		al.add(2);
+		al.add(100);
 
+		Collections.sort(al);
 		al.forEach(System.out::println);
-
-		int index = Collections.binarySearch(al, 50, Collections.reverseOrder());
+		
+		Comparator<Integer> comparator = (a1, a2) -> new Integer(a1).compareTo(new Integer(a2));
+		
+		// int index = Collections.binarySearch(al, 50, comparator);
+		int index = Collections.binarySearch(al, 50, null);
 
 		System.out.println("Found at index " + index);
 		System.out.println("--end----------- sample 2 ---------------------------");
@@ -133,6 +137,5 @@ class Domain implements Comparable<Domain>{
 	@Override
 	public int compareTo(Domain another) {
 		return new Integer(this.id).compareTo(another.getId());
-			
 	}
 }
