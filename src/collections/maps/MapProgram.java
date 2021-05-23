@@ -50,5 +50,35 @@ public class MapProgram {
         for(String key : languages.keySet()) {
         	System.out.println(key + " : " + languages.get(key));
         }
+        
+        
+        // remove and replace
+        System.out.println("=== REMOVING BY KEY ===");
+        System.out.println(languages.remove("Java"));
+     	System.out.println("=================================================================================================================================================================================================================================================================================================================================================================================================\n");
+
+        System.out.println("=== REMOVING BY KEY AND VALUE (WRONG VALUE) ===");
+        System.out.println(languages.remove("Python", "test 123")); // wrong value
+     	System.out.println("=================================================================================================================================================================================================================================================================================================================================================================================================\n");
+
+     	System.out.println("=== REMOVING BY KEY AND VALUE (RIGHT VALUE) ===");
+        System.out.println(languages.remove("Python", "an interpreted, object-oriented, high-level programming language with dynamic semantics")); // right value
+       	System.out.println("=================================================================================================================================================================================================================================================================================================================================================================================================\n");
+
+       	
+        System.out.println("=== REPLACE BY KEY ===");
+        // System.out.println(languages.replace("Algol", "I love java")); // OK
+        // System.out.println(languages.replace("Algol",  "an algorithmic language", "I love java")); // OK
+        System.out.println(languages.replace("Algol",  "an algorithmic language 123", "I love java")); // KO
+        iteratMap(languages);
+        
+        System.out.println("=================================================================================================================================================================================================================================================================================================================================================================================================\n");
+
+    }
+    
+    private static void iteratMap(Map<? ,?> theMap) {
+        for(Object key : theMap.keySet()) {
+        	System.out.println(key + " : " + theMap.get(key));
+        }
     }
 }

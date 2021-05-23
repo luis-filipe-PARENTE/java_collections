@@ -6,16 +6,21 @@ import java.util.*;
  * Created by dev on 2/12/2015.
  */
 public class Theatre {
+	
 	private final String theatreName;
-	static final Comparator<Seat> PRICE_ORDER = (s1, s2) -> {
-		if(s1.getPrice() < s2.getPrice()) {
-			return -1;
-		} else if(s1.getPrice() > s2.getPrice()) {
-			return 1;
-		} else {
-			return 0;
-		}
-	};
+	static final Comparator<Seat> PRICE_ORDER;
+	
+	static {
+		PRICE_ORDER = (s1, s2) -> {
+			if(s1.getPrice() < s2.getPrice()) {
+				return -1;
+			} else if(s1.getPrice() > s2.getPrice()) {
+				return 1;
+			} else {
+				return 0;
+			}
+		};
+	}
 
 	// https://beginnersbook.com/2013/12/difference-between-arraylist-and-linkedlist-in-java/
 	public List<Seat> seats = new ArrayList<>();
